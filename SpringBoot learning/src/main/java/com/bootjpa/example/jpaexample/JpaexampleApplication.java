@@ -20,51 +20,51 @@ public class JpaexampleApplication {
 
 
 		//Creating an Object
-//		User user=new User();
-//		user.setName("Nikhil Butle");
-//		user.setCity("Mohopada");
-//		user.setState("Maharashtra");
-//		user.setStatus("Software Developer");
-//
-//		 //Creating a single entity
-//		User user1=userRepository.save(user);
-//		System.out.println(user1);
-//
-//		//Creata a User
-//		User newUser1=new User();
-//
-//		newUser1.setName("Sujal");
-//		newUser1.setCity("Chambarli");
-//		newUser1.setState("Maharashtra");
-//		newUser1.setStatus("Chef");
-//
-//		User newUser2=new User();
-//
-//		newUser2.setName("Viraj");
-//		newUser2.setCity("Pen");
-//		newUser2.setState("Maharashtra");
-//		newUser2.setStatus("MBA asparaint");
-//
-//		List<User> userList=List.of(newUser1,newUser2);
-//
-//		//Creating a Multiple Entity
-//		userRepository.saveAll(userList);
+		User user=new User();
+		user.setName("Nikhil Butle");
+		user.setCity("Mohopada");
+		user.setState("Maharashtra");
+		user.setStatus("Software Developer");
+
+		 //Creating a single entity
+		User user1=userRepository.save(user);
+		System.out.println(user1);
+
+		//Creata a User
+		User newUser1=new User();
+
+		newUser1.setName("Sujal");
+		newUser1.setCity("Chambarli");
+		newUser1.setState("Maharashtra");
+		newUser1.setStatus("Chef");
+
+		User newUser2=new User();
+
+		newUser2.setName("Viraj");
+		newUser2.setCity("Pen");
+		newUser2.setState("Maharashtra");
+		newUser2.setStatus("MBA asparaint");
+
+		List<User> userList=List.of(newUser1,newUser2);
+
+		//Creating a Multiple Entity
+		userRepository.saveAll(userList);
 
 
-		// Updating an single object
-//		Optional<User> optional=userRepository.findById(3);
-//
-//		if(optional.isPresent()){
-//			User user=optional.get();
-//			user.setName("Sujal Munde");
-//			userRepository.save(user);
-//		}
+		 //Updating an single object
+		Optional<User> optional=userRepository.findById(3);
+
+		if(optional.isPresent()){
+			User user3=optional.get();
+			user3.setName("Sujal Munde");
+			userRepository.save(user3);
+		}
 
 		//how to get data
 		// findById()-> return Optional containing data;
 		Iterable<User> iterator=userRepository.findAll();
-		iterator.forEach(user -> {
-			System.out.println(user.getName()+ " "+user.getCity()+" "+user.getStatus());
+		iterator.forEach(users -> {
+			System.out.println(users.getName()+ " "+users.getCity()+" "+users.getStatus());
 		});
 
 
