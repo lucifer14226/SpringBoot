@@ -45,10 +45,10 @@ public class JpaexampleApplication {
 		newUser2.setState("Maharashtra");
 		newUser2.setStatus("MBA asparaint");
 
-		List<User> userList=List.of(newUser1,newUser2);
+		List<User> userListToInsert=List.of(newUser1,newUser2);
 
 		//Creating a Multiple Entity
-		userRepository.saveAll(userList);
+		userRepository.saveAll(userListToInsert);
 
 
 		 //Updating an single object
@@ -67,7 +67,28 @@ public class JpaexampleApplication {
 			System.out.println(users.getName()+ " "+users.getCity()+" "+users.getStatus());
 		});
 
+		List<User> userList=userRepository.findByName("Nikhil Butle");
+		userList.forEach(users -> {
+			System.out.println(users.getStatus());
+		});
 
+		userList=userRepository.findByState("Maharashtra");
+
+		userList.forEach(users -> {
+			System.out.println(users.getName()+" "+users.getCity()+" "+users.getStatus());
+		});
+
+		userList=userRepository.findByNameAndCity("Nikhil Butle","Mohopada");
+
+		userList.forEach(users -> {
+			System.out.println(users.getName()+" "+users.getCity()+" "+users.getStatus());
+		});
+
+		userList=userRepository.findByNameOrCity("Nikhil Butle","Pen");
+
+		userList.forEach(users -> {
+			System.out.println(users.getName()+" "+users.getCity()+" "+users.getStatus());
+		});
 
 	}
 
