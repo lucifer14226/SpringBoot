@@ -19,46 +19,46 @@ public class JpaexampleApplication {
 		UserRepository userRepository=context.getBean(UserRepository.class);
 
 
-		//Creating an Object
-		User user=new User();
-		user.setName("Nikhil Butle");
-		user.setCity("Mohopada");
-		user.setState("Maharashtra");
-		user.setStatus("Software Developer");
-
-		 //Creating a single entity
-		User user1=userRepository.save(user);
-		System.out.println(user1);
-
-		//Creata a User
-		User newUser1=new User();
-
-		newUser1.setName("Sujal");
-		newUser1.setCity("Chambarli");
-		newUser1.setState("Maharashtra");
-		newUser1.setStatus("Chef");
-
-		User newUser2=new User();
-
-		newUser2.setName("Viraj");
-		newUser2.setCity("Pen");
-		newUser2.setState("Maharashtra");
-		newUser2.setStatus("MBA asparaint");
-
-		List<User> userListToInsert=List.of(newUser1,newUser2);
-
-		//Creating a Multiple Entity
-		userRepository.saveAll(userListToInsert);
+//		//Creating an Object
+//		User user=new User();
+//		user.setName("Nikhil Butle");
+//		user.setCity("Mohopada");
+//		user.setState("Maharashtra");
+//		user.setStatus("Software Developer");
+//
+//		 //Creating a single entity
+//		User user1=userRepository.save(user);
+//		System.out.println(user1);
+//
+//		//Creata a User
+//		User newUser1=new User();
+//
+//		newUser1.setName("Sujal");
+//		newUser1.setCity("Chambarli");
+//		newUser1.setState("Maharashtra");
+//		newUser1.setStatus("Chef");
+//
+//		User newUser2=new User();
+//
+//		newUser2.setName("Viraj");
+//		newUser2.setCity("Pen");
+//		newUser2.setState("Maharashtra");
+//		newUser2.setStatus("MBA asparaint");
+//
+//		List<User> userListToInsert=List.of(newUser1,newUser2);
+//
+//		//Creating a Multiple Entity
+//		userRepository.saveAll(userListToInsert);
 
 
 		 //Updating an single object
-		Optional<User> optional=userRepository.findById(3);
-
-		if(optional.isPresent()){
-			User user3=optional.get();
-			user3.setName("Sujal Munde");
-			userRepository.save(user3);
-		}
+//		Optional<User> optional=userRepository.findById(3);
+//
+//		if(optional.isPresent()){
+//			User user3=optional.get();
+//			user3.setName("Sujal Munde");
+//			userRepository.save(user3);
+//		}
 
 		//how to get data
 		// findById()-> return Optional containing data;
@@ -88,6 +88,27 @@ public class JpaexampleApplication {
 
 		userList.forEach(users -> {
 			System.out.println(users.getName()+" "+users.getCity()+" "+users.getStatus());
+		});
+
+		userList=userRepository.getALlUsers();
+
+		System.out.println("All the user Using JPL");
+		System.out.println("---------------------------------");
+		userList.forEach(user2 -> {
+			System.out.println(user2.getName()+" "+user2.getCity()+" "+user2.getStatus());
+		});
+
+		System.out.println("Printing user ");
+		System.out.println("---------------------------------");
+		userList=userRepository.getAllUserByName("Nikhil Butle");
+
+		userList.forEach(user2 -> {
+			System.out.println(user2.getName()+" "+user2.getCity()+" "+user2.getStatus());
+		});
+
+		userList=userRepository.getAllUserByNameAndCity("Nikhil Butle","Mohopada");
+		userList.forEach(user2 -> {
+			System.out.println(user2.getName()+" "+user2.getCity()+" "+user2.getStatus());
 		});
 
 	}
