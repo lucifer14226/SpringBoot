@@ -13,11 +13,11 @@ public class BookService {
     private static List<Book> list=new ArrayList<>();
 
     static {
-        list.add(new Book(1,"Hands-on Java","Ashok Singh","Information"));
-        list.add(new Book(2,"Love Hypothesis","Ali Hazelwood","Rom-Com"));
-        list.add(new Book(3,"Atomic habits","Anothey gustov","Self-Help"));
-        list.add(new Book(4,"The Subtle art of not giving a fuck","Mark Manson","Self-Help"));
-        list.add(new Book(5,"Cricket as Career was a mistake","Virat Kholi","Cricket"));
+//        list.add(new Book(1,"Hands-on Java","Ashok Singh","Information"));
+//        list.add(new Book(2,"Love Hypothesis","Ali Hazelwood","Rom-Com"));
+//        list.add(new Book(3,"Atomic habits","Anothey gustov","Self-Help"));
+//        list.add(new Book(4,"The Subtle art of not giving a fuck","Mark Manson","Self-Help"));
+//        list.add(new Book(5,"Cricket as Career was a mistake","Virat Kholi","Cricket"));
     }
 
     //get all books
@@ -33,8 +33,9 @@ public class BookService {
     }
 
     // add book
-    public void addBook(Book b){
+    public Book addBook(Book b){
         list.add(b);
+        return b;
     }
 
     // delete book handler
