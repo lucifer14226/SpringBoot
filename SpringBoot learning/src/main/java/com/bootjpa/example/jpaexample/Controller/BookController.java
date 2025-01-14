@@ -42,6 +42,7 @@ public class BookController {
             b=bookService.addBook(book);
             return ResponseEntity.of(Optional.of(b));
         }catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }

@@ -1,8 +1,19 @@
 package com.bootjpa.example.jpaexample.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="books")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "book_id")
     int id;
+
+    String Name;
+    String author;
+    String Genre;
 
     public Book() {
     }
@@ -46,7 +57,5 @@ public class Book {
         Genre = genre;
     }
 
-    String Name;
-    String author;
-    String Genre;
+
 }
