@@ -12,5 +12,6 @@ public class JpaexampleApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JpaexampleApplication.class,args);
 	}
+	
 
 }
