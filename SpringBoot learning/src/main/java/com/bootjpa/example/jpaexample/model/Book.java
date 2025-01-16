@@ -12,13 +12,15 @@ public class Book {
     int id;
 
     String Name;
-    String author;
     String Genre;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Author author;
 
     public Book() {
     }
 
-    public Book(int id, String name, String author, String genre) {
+    public Book(int id, String name, Author author, String genre) {
         this.id = id;
         Name = name;
         this.author = author;
@@ -41,11 +43,11 @@ public class Book {
         Name = name;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
