@@ -1,5 +1,6 @@
 package com.bootjpa.example.jpaexample.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +21,18 @@ public class Author {
     @Column (name = "author_language")
     private String language;
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    @OneToOne(mappedBy = "author")
+    @JsonBackReference
+    private Book book;
+
 
     public String getLanguage() {
         return language;
@@ -33,10 +46,11 @@ public class Author {
 
     }
 
-    public Author(int author_id, String firstName, String lastName) {
+    public Author(int author_id, String firstName, String lastName,Book book) {
         this.author_id = author_id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.book=book;
     }
 
     public int getAuthor_id() {

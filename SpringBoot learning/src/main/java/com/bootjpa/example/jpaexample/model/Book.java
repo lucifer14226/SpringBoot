@@ -1,5 +1,7 @@
 package com.bootjpa.example.jpaexample.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +17,7 @@ public class Book {
     String Genre;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Author author;
 
     public Book() {
