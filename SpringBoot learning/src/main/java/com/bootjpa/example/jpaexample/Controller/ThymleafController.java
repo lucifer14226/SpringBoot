@@ -24,10 +24,23 @@ public class ThymleafController {
         return "about";
     }
 
-    @GetMapping(value = "iterate-example")
+    @GetMapping(value = "/iterate-example")
     public  String view(Model model){
         List<String> names = List.of("Nikhil","Viraj","Sujal","Nachiket");
         model.addAttribute("names", names);
         return "iterate";
+    }
+
+    @GetMapping(value = "/condition")
+    public  String condition(Model model){
+
+        model.addAttribute("isActive",false);
+        model.addAttribute("Gender",'F');
+
+        List<Integer> list =List.of();
+
+        model.addAttribute("list",list);
+
+        return "condition";
     }
 }
