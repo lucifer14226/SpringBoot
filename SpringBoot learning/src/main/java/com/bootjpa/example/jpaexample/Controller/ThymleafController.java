@@ -1,12 +1,13 @@
 package com.bootjpa.example.jpaexample.Controller;
 
+import com.bootjpa.example.jpaexample.model.LoginData;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -42,5 +43,25 @@ public class ThymleafController {
         model.addAttribute("list",list);
 
         return "condition";
+    }
+
+    @GetMapping(value = "/form")
+    public String openForm(Model model){
+
+        model.addAttribute("loginData", new LoginData());
+        return "form";
+    }
+
+    @PostMapping("/process")
+    public String processForm(@Valid @ModelAttribute("loginData")LoginData loginData, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult);
+            return "form";
+        }
+
+        System.out.println(loginData.getUserName());
+        System.out.println(loginData.getEmail());
+        return "success";
     }
 }

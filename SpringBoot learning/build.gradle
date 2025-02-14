@@ -25,6 +25,8 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '3.4.2'
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.5.Final'
 
 }
 
